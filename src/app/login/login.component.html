@@ -1,0 +1,56 @@
+<!-- <div class="modal-header">
+    <h4 class="modal-title">Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+  <div class="modal-dialog modal-lg" style="width: 700px;" >
+      
+<div class=" font-robo">
+    <div class="">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">Login Here</h2>
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
+                    
+                    <div class="row row-space">
+                        <div class="input-group">
+                            <input id="email" formControlName="email" class="input--style-2" type="text" placeholder="Enter Email" name="name">
+                        </div>
+                        <div class="validcheck" *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+                            <div  class="em" [hidden]="!email.errors.required">Email is required</div>
+                            <div   class="em" [hidden]="!email.errors.email">Invalid email id</div>
+                        </div>
+                       </div> 
+                       <div class="row row-space">
+                        <div class="input-group">
+                            <input id="password" formControlName="password" class="input--style-2" type="password" placeholder="Enter password" name="name">
+                        </div>
+                        <div class="validcheck" *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+                            <div  class="em" [hidden]="!password.errors.required">password is required</div>
+                            <div   class="em" [hidden]="!password.errors.minlength">Minimum length is 10</div>
+                        </div>
+                       </div> 
+                      
+                   <!--    <div class="row row-space">
+                        <div class="input-group">
+                           <input style="height: 20px;width: 20px; align-self: auto; " type="checkbox" id="remember"><div style="padding-left: 10px;"> <p  class="input--style-2" >Remember me</p></div></div>
+                       </div> -->
+                       <div class="row row-space">
+                         <a href="#">Forgot password?</a>
+                       </div>
+
+
+                    <div class="p-t-30">
+                        <button style="width:150px; color: black;"  class="btn btn--radius btn--green" type="submit" (click)="activeModal.close('Close click')">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </div> 
+  
+  

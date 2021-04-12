@@ -1,0 +1,144 @@
+/* Resets */
+hr {
+    margin-left: 0;
+    max-width: 40px;
+  }
+
+  
+  /* Jumbotron (hero) */
+  .jumbotron {
+    position: relative;
+    background: url(https://images.pexels.com/photos/2533092/pexels-photo-2533092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center/cover;
+  }
+  .jumbotron:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .jumbotron .container {
+    padding: 75px 0;
+  }
+  .jumbotron h1,
+  .jumbotron .lead {
+    color: #fff;
+  }
+  
+  /* Bustom button */
+  .btn-primary {
+    background: #1096fc;
+    border: 0;
+  }
+  .btn-primary:hover {
+    background: #0384e5;
+  }
+  
+  
+  
+  /* Features */
+  
+  
+  .imgss{
+    height: 200px;
+    width: auto;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .h4{
+    color: #026670;
+  }
+  
+  /* Testimonials */
+  .sec-testimonials {
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+  
+  /* Carousel */
+  .carousel-indicators {
+    bottom: -30px;
+  }
+  .carousel-indicators li {
+    background: rgba(33, 33, 33, 0.1);
+  }
+  .carousel-indicators li:focus, .carousel-indicators li:hover {
+    background: rgba(33, 33, 33, 0.5);
+  }
+  .carousel-indicators .active {
+    background: rgba(33, 33, 33, 0.75);
+  }
+  
+  .carousel-control-next,
+  .carousel-control-prev {
+    color: #212121;
+  }
+  .carousel-control-next:focus, .carousel-control-next:hover,
+  .carousel-control-prev:focus,
+  .carousel-control-prev:hover {
+    color: #111;
+  }
+  
+  
+  
+  
+  /* CARDS */
+  .card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  padding: 5px 5px 5px 5px;
+  cursor: pointer;
+  
+  }
+  
+  .card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  } 
+
+/*Searchbar*/
+.search-sec{
+    padding: 2rem;
+  }
+  .search-slt{
+    display: block;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+  }
+  .wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+    border:none;
+    color: white;
+  }
+  @media (min-width: 992px){
+    .search-sec{
+        position: relative;
+        top: -114px;
+        background: rgba(2, 102, 112, 0.51);
+    }
+  }
+  
+  @media (max-width: 992px){
+    .search-sec{
+        background: rgba(2, 102, 112, 0.51);
+    }
+  }
+  
