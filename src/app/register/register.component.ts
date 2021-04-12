@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { Router } from '@angular/router';
+import {ServiceService} from '../service.service'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,14 +9,18 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(private router: Router,
+    public curdService: ServiceService
+
+  ) { }
   registerForm = new FormGroup({
-    Name: new FormControl('',[Validators.required]),
-    email: new FormControl('', [Validators.email, Validators.required]), 
+    FirstName: new FormControl('',[Validators.required]),
+    LastName: new FormControl('',[Validators.required]),
+    Email: new FormControl('', [Validators.email, Validators.required]), 
     Contact: new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
     password: new FormControl('',[Validators.required,Validators.minLength(10)]),
     Gender: new FormControl('',[Validators.required]),
-    DOB: new FormControl('',[Validators.required]),
+    DateOfBirth: new FormControl('',[Validators.required]),
     Address: new FormControl('',[Validators.required])
    
    })
@@ -24,18 +28,19 @@ export class RegisterComponent implements OnInit {
   
   ngOnInit(): void {
   }
-  onSubmit()
-  {
-    console.log(this.registerForm.value);
-  }  
-  get Name()
+  
+  get FirstName()
 {
-  return this.registerForm.get('Name');
+  return this.registerForm.get('FirstName');
+}
+get LastName()
+{
+  return this.registerForm.get('LastName');
 }
 
-get email()
+get Email()
 {
-  return this.registerForm.get('email');
+  return this.registerForm.get('Email');
 }
 get Contact()
 {
@@ -54,19 +59,25 @@ get Address()
 {
   return this.registerForm.get('Address');
 }
-get DOB()
+get DateOfBirth()
 {
-  return this.registerForm.get('DOB');
+  return this.registerForm.get('DateOfBirth');
 }
+onSubmit()
+  {
+    this.curdService.userdetails(this.registerForm.value).subscribe(res =>{console.log('Registration Successful'), this.router.navigateByUrl('/userdetails')});
+    alert("Registered")
+  }  
 }
 
-export class register {
-  Name:string;
-  email:string;
+export class UserDetail {
+  FirstName:string;
+  LastName:string;
+  Email:string;
   Contact:string;
   password:string;
   Gender:string;
   Address:string;
-  DOB:string
+  DateOfBirth:string
 
 }

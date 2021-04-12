@@ -1,4 +1,3 @@
-  <div class="modal-dialog modal-xl " style="height: max-content; width: 900px;">
     <div class=" font-robo" >
         <div class="">
             <div class="card card-2">
@@ -9,10 +8,20 @@
                         
                         <div class="row row-space">
                             <div class="input-group">
-                                <input id="Name" formControlName="Name" class="input--style-2" type="text" placeholder="Enter Name" name="name">
+                                <input id="FirstName" formControlName="FirstName" class="input--style-2" type="text" placeholder="Enter FirstName" name="FirstName">
                             </div>
-                            <div class="validcheck" *ngIf="!Name?.valid && (Name?.dirty || Name?.touched)">
-                                <div  class="em" [hidden]="!Name.errors.required">Name is required</div>
+                            <div class="validcheck" *ngIf="!FirstName?.valid && (FirstName?.dirty || FirstName?.touched)">
+                                <div  class="em" [hidden]="!FirstName.errors.required">FirstName is required</div>
+                                
+                            </div>
+                           </div> 
+
+                           <div class="row row-space">
+                            <div class="input-group">
+                                <input id="LastName" formControlName="LastName" class="input--style-2" type="text" placeholder="Enter LastName" name="LastName">
+                            </div>
+                            <div class="validcheck" *ngIf="!LastName?.valid && (LastName?.dirty || LastName?.touched)">
+                                <div  class="em" [hidden]="!LastName.errors.required">LastName is required</div>
                                 
                             </div>
                            </div> 
@@ -21,11 +30,11 @@
     
                         <div class="row row-space">
                             <div class="input-group">
-                                <input id="email" formControlName="email" class="input--style-2" type="text" placeholder="Enter Email" name="email">
+                                <input id="Email" formControlName="Email" class="input--style-2" type="text" placeholder="Enter Email" name="Email">
                             </div>
-                            <div class="validcheck" *ngIf="!email?.valid && (email?.dirty || email?.touched)">
-                                <div  class="em" [hidden]="!email.errors.required">Email is required</div>
-                                <div   class="em" [hidden]="!email.errors.email">Invalid email id</div>
+                            <div class="validcheck" *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)">
+                                <div  class="em" [hidden]="!Email.errors.required">Email is required</div>
+                                <div   class="em" [hidden]="!Email.errors.Email">Invalid Email id</div>
                             </div>
                            </div> 
     
@@ -56,21 +65,40 @@
                                 <label for="Gender" class="input--style-2"> Gender</label> 
                             <select class="form-control" name="Text" id="Gender" formControlName="Gender" placeholder="Enter Gender"><br>
                                
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="No">Prefer Not To Say</option>
+                                <option value="Male" name="Male">Male</option>
+                                <option value="Female" name="Female">Female</option>
+                                <option value="No" name="No">Prefer Not To Say</option>
                             </select>
                             </div><br>
+                            <!-- <div class="row row-space">
+                                <div class="input-group">
+                                    <input id="Gender" formControlName="Gender" class="input--style-2" type="text" placeholder="Enter Gender" name="Gender">
+                                </div>
+                                <div class="validcheck" *ngIf="!Gender?.valid && (Gender?.dirty || Gender?.touched)">
+                                    <div  class="em" [hidden]="!Gender.errors.required">Gender is required</div>
+                                    
+                                </div>
+                               </div>  -->
+
     
                             <div class="row row-space">
                                 <div class="input-group">
-                                    <label for="DOB" class="input--style-2"> Date Of  Birth</label>
-                                    <input id="DOB" formControlName="DOB" class="input--style-2" type="date" placeholder="Enter Date Of Birth" name="DOB">
+                                    <label for="DateOfBirth" class="input--style-2"> Date Of  Birth</label>
+                                    <input id="DateOfBirth" formControlName="DateOfBirth" class="input--style-2" type="date" placeholder="Enter Date Of Birth" name="DateOfBirth">
                                 </div>
-                                <div class="validcheck" *ngIf="!DOB?.valid && (DOB?.dirty || DOB?.touched)">
-                                    <div  class="em" [hidden]="!DOB.errors.required"> DOB is required </div>
+                                <div class="validcheck" *ngIf="!DateOfBirth?.valid && (DateOfBirth?.dirty || DateOfBirth?.touched)">
+                                    <div  class="em" [hidden]="!DateOfBirth.errors.required"> DateOfBirth is required </div>
                                 </div>
                                 </div>
+                                <!-- <div class="row row-space">
+                                    <div class="input-group">
+                                        <input id="DateOfBirth" formControlName="DateOfBirth" class="input--style-2" type="text" placeholder="Enter DateOfBirth" name="DateOfBirth">
+                                    </div>
+                                    <div class="validcheck" *ngIf="!DateOfBirth?.valid && (DateOfBirth?.dirty || DateOfBirth?.touched)">
+                                        <div  class="em" [hidden]="!DateOfBirth.errors.required">Gender is required</div>
+                                        
+                                    </div>
+                                   </div>  -->
     
                                 <div class="row row-space">
                                     <div class="input-group">
@@ -86,12 +114,12 @@
                             
     
                         <div class="p-t-30">
-                            <button style="width:150px; color: black;"  class="btn btn--radius btn--green" type="submit" (click)="activeModal.close('Close click')">Register</button>
+                            <button style="width:150px; color: black;"  class="btn btn--radius btn--green" type="submit" [disabled] ="!registerForm.valid">Register</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>  
-  </div>
+
 

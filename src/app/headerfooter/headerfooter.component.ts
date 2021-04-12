@@ -9,15 +9,11 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class HeaderfooterComponent implements OnInit {
 
-  constructor(public modalService: NgbModal) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-  openVideoPopup() {
-    const modalRef = this.modalService.open(LoginComponent);
-  }
-  openregister() {
-    const modalRef = this.modalService.open(RegisterComponent);
-  }
+ 
+
 
 }
