@@ -65,7 +65,7 @@ get DateOfBirth()
 }
 onSubmit()
   {
-    this.curdService.userdetails(this.registerForm.value).subscribe(res =>{console.log('Registration Successful'), this.router.navigateByUrl('/userdetails')});
+    this.curdService.userdetails(this.registerForm.value).subscribe(res =>{console.log('Registration Successful'), this.router.navigateByUrl('Login')});
     alert("Registered")
   }  
 }

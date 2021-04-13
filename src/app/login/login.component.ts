@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor( private router: Router, public curdservice: ServiceService) { }
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]), 
     password: new FormControl('',[Validators.required,Validators.minLength(10)])
@@ -20,7 +22,18 @@ export class LoginComponent implements OnInit {
   }
   onLogin()
   {
-    console.log(this.loginForm.value);
+    console.log(this.loginForm.value)
+    this.curdservice.login(this.loginForm.value).subscribe(res => {
+      console.log(res)
+      if(res.toString()=="Found")
+      {
+        localStorage.setItem('Email',this.loginForm.value.Email);
+        this.router.navigateByUrl('Home');
+      }
+      else{
+        alert("Invalid Login!");
+      }
+    })
   } 
   get email()
   {

@@ -19,4 +19,10 @@ export class ServiceService {
   userdetails(userdetails): Observable<UserDetail>{
     return this.httpClient.post<UserDetail>(this.apiServer+'/userdetails',JSON.stringify(userdetails),this.httpOptions)
   }
+
+  login(login): Observable<UserDetail>{
+    var req = this.httpClient.post<UserDetail>(this.apiServer + '/login', JSON.stringify(login), this.httpOptions)
+    console.log(req);
+    return(req);
+  }
 }
