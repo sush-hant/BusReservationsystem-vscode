@@ -1,0 +1,125 @@
+.pa{
+  
+    font-size: small;
+    color: red;
+  }
+  
+  .register .reg
+  {
+      text-align: center;
+      background-color: white;
+      margin-top: 20px;
+      padding: 40px;
+      font-size: 25px;
+      
+      
+      font-weight: bold;
+  
+  }
+  .register
+  {
+  background-color:white;
+  
+  }
+  
+  .details
+  {
+      background-color: white;
+      width: 450px;
+      margin: 0px auto 0px;
+      padding: 15px;
+      font-weight: bolder;
+      font-size: larger;
+  }
+  .details input[type=checkbox],
+  .details input[type=text],
+   select
+  {
+      font-size: 15px;
+      font-weight: lighter;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px;
+      margin-bottom: 5px;
+  
+  }
+  
+  .enterbtn
+  {
+      margin: 15px auto 20px;
+      margin-bottom: 35px;
+      width: 420px;
+      border: none;
+      color: black;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      background-color: #fce181;
+      
+  }
+  button:hover {
+      background-color:#f5cb35;
+  }
+   
+  .validcheck
+  {
+      font-size: normal;
+      font-weight: lighter;
+      border-radius: 10px;
+  } 
+  .container{
+      
+      padding: 10px;
+      width: 500px;
+      height: initial;
+  
+  }
+  
+  input:focus{
+      border:3px solid #EDEAE5;
+      outline: none;
+      box-shadow: none;
+  }
+  button{
+      background-color: #FEF9C7;
+      
+  }
+  button:focus{
+      background-color: #FCE181;
+      outline: none; 
+      box-shadow: none;
+  }
+  .bottom
+  {
+  
+      height: 80px;
+      background-color: #edeae5;
+      padding: 20px;
+      width: 100%;
+      bottom: 0;
+      position: fixed;    
+  }
+
+  .weekDays-selector input {
+    display: none!important;
+  }
+  
+  .weekDays-selector input[type=checkbox] + label {
+    display: inline-block;
+    border-radius: 6px;
+    background: #dddddd;
+    height: 40px;
+    width: 120px;
+    margin-right: 3px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .weekDays-selector input[type=checkbox]:checked + label {
+    background: #2AD705;
+    color: #ffffff;
+  }

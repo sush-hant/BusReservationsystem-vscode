@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="register">       
+    <div class="reg">Please Enter Rental Bus Details</div>
+    <div class="details">
+        <form [formGroup]="RentalbusForm" (ngSubmit)="onSubmit()" novalidate>
+            <label for="NoOfSeats">No Of Seats</label>
+            <input type="text" name="NoOfSeats" id="NoOfSeats" formControlName="NoOfSeats" placeholder="Enter No Of Seats" required>
+            <div class="validcheck" *ngIf="!NoOfSeats?.valid && (NoOfSeats?.dirty || NoOfSeats?.touched)">
+                <div class="fn1" [hidden]="!NoOfSeats.errors.required">Please mention no of seats </div>
+            </div>
+    
+            <label for="FarePerDay">Fare per Day</label>
+            <input type="text" name="FarePerDay" id="FarePerDay" formControlName="FarePerDay" placeholder="Enter fare per day" required>
+            <div class="validcheck" *ngIf="!FarePerDay?.valid && (FarePerDay?.dirty || FarePerDay?.touched)">
+                <div class="fn2" [hidden]="!FarePerDay.errors.required">Please mention fare per day</div>
+            </div>
+
+            <label for="Deposit">Deposit</label>
+            <input type="text" name="Deposit" id="Deposit" formControlName="Deposit" placeholder="Enter deposit" required >
+            <div class="validcheck" *ngIf="!Deposit?.valid && (Deposit?.dirty || Deposit?.touched)">
+                <div class="fn3" [hidden]="!Deposit.errors.required">Please mention Deposit</div>
+            </div>
+
+            <label for="DriversName">Driver Name</label>
+            <input type="text" name="DriversName" id="DriversName" formControlName="DriversName" placeholder="Enter driver Name" required>
+            <div class="validcheck" *ngIf="!DriversName?.valid && (DriversName?.dirty || DriversName?.touched)">
+                <div class="fn4" [hidden]="!DriversName.errors.required">Please mention Driver Name</div>
+            </div>
+            
+            <label for="DriversContactNo">Driver Contact</label>
+            <input type="text" name="DriversContactNo" id="DriversContactNo" formControlName="DriversContactNo" placeholder="Enter driver Contact Number" required pattern>
+            <div class="validcheck" *ngIf="!DriversContactNo?.valid && (DriversContactNo?.dirty || DriversContactNo?.touched)">
+                <div class="fn5" [hidden]="!DriversContactNo.errors.required">Please mention Driver Contact Number</div>
+                <div  class="fn6" [hidden]="!DriversContactNo.errors.pattern">invalid Contact</div>   
+            </div>
+
+            <label for ="PickupPoint">Pick Up Point</label><br>
+            <input type="text" name="Text" id="PickupPoint" formControlName="PickupPoint" placeholder="Enter Pick Up Point" required><br>
+            <div class="validcheck" *ngIf="!PickupPoint?.valid && (PickupPoint?.dirty || PickupPoint?.touched)">
+                <div class="fn5" [hidden]="!PickupPoint.errors.required">Please mention Pick Up Point</div>
+            </div>
+        
+            <button class="enterbtn" type="submit" [disabled] ="!RentalbusForm.valid" >Enter</button>
+        </form>
+    
+    </div>
+    </div>
+</div>

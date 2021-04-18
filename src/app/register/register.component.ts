@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
     FirstName: new FormControl('',[Validators.required]),
     LastName: new FormControl('',[Validators.required]),
     Email: new FormControl('', [Validators.email, Validators.required]), 
-    Contact: new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+    ContactNo: new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
     password: new FormControl('',[Validators.required,Validators.minLength(10)]),
     Gender: new FormControl('',[Validators.required]),
     DateOfBirth: new FormControl('',[Validators.required]),
@@ -42,9 +42,9 @@ get Email()
 {
   return this.registerForm.get('Email');
 }
-get Contact()
+get ContactNo()
 {
-  return this.registerForm.get('Contact');
+  return this.registerForm.get('ContactNo');
 
 }
  get password()
@@ -74,7 +74,7 @@ export class UserDetail {
   FirstName:string;
   LastName:string;
   Email:string;
-  Contact:string;
+  ContactNo:number;
   password:string;
   Gender:string;
   Address:string;

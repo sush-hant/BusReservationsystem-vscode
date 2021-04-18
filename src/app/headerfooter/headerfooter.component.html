@@ -10,45 +10,65 @@
           <li class="nav-item">
             <a class="nav-link" routerLink=''>Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Hire Bus</a>
+          <li class="nav-item" *ngIf = !User>
+            <a class="nav-link" routerLink='Login'>Hire Bus</a>
           </li>
+          <li class="nav-item" *ngIf = User>
+            <a class="nav-link" routerLink='HireBus'>Hire Bus</a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" routerLink="Feedback">Feed Back</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">AboutUs</a>
+            <a class="nav-link" routerLink='AboutUs'>AboutUs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink='Register'>Sign Up</a>
+            <a class="nav-link" routerLink='Register' *ngIf="!User">Sign Up</a>
+          </li>
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="User">
+              Dashboard
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="Profile">Profile</a>
+              <a class="dropdown-item" routerLink="MyBooking">My Bookings</a>
+              <a class="dropdown-item" routerLink="ChangePassword">Change Password</a>
+              <a class="dropdown-item" routerLink="Wallet">My Wallet</a>
+              
+            </div>
           </li>
           <li class="nav-item">
-            <a class="btn btn-primary" style="background-color: #fce181; color: black; border-radius: 0%;" routerLink='Login'>Login</a>
+            <a class="btn btn-primary" style="background-color: #fce181; color: black; border-radius: 0%;" routerLink='Login' *ngIf="!User">Login</a>
           </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" style="background-color: #fce181; color: black; border-radius: 0%;" routerLink='Home' (click)="logout()" *ngIf="User">Logout</a>
+          </li>
+
         </ul>       
         </div>
       </div>
     </nav>     
   </header>
-  <router-outlet></router-outlet>
-  <footer class="mainfooter" role="contentinfo">
+  <!-- <router-outlet></router-outlet> -->
+  <!-- <footer class="mainfooter" role="contentinfo">
     <div class="footer-middle">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6">
-          <!--Column1-->
+          
           <div class="footer-pad">
               <h2>About BusClick</h2>
               <ul class="list-unstyled">
-                <li><a href="#"></a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a routerLink='AboutUs'>About Us</a></li>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Mobile Version</a></li>  
+                <li><a routerLink='Feeback'>Feedback</a></li>
+                <li><a routerLink='AdminLogin' *ngIf="!Email" >AdminLogin</a></li>  
               </ul>
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
-          <!--Column1-->
           <div class="footer-pad">
               <h2>Info</h2>
               <ul class="list-unstyled">
@@ -61,7 +81,6 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6">
-          <!--Column1-->
           <div class="footer-pad">
               <h2>Sites</h2>
               <ul class="list-unstyled">
@@ -94,4 +113,4 @@
       </div>     
     </div>
     </div>
-  </footer>
+  </footer> -->

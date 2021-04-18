@@ -1,0 +1,60 @@
+.logpg 
+{
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+.logpg h2
+{
+    text-align: center;
+    padding: 25px;
+}
+
+.logpg table
+{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding: 10px;
+}
+
+.logpg td
+{
+    padding: 3px;
+
+}
+
+.tdt
+{
+    font-size: large;
+}
+
+
+.inputt
+{
+    width: 300px; 
+    height: 45px;
+    border: solid rgb(241, 241, 241);
+    border-width:1px;
+    border-radius: 2px;
+}
+
+.logpg input[type=text]:focus,input[type=password]:focus
+{
+    border:black 2px solid;
+    
+}
+
+.logpg input[placeholder]
+{
+    padding: 15px;
+}
+
+button
+{
+    background-color: #FCE181 ;
+    color:black;
+    margin-top: 10px;
+    
+}
+

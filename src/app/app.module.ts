@@ -12,6 +12,18 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { BusaddComponent } from './busadd/busadd.component';
+import { BusbookingComponent } from './busbooking/busbooking.component';
+import { BusmainComponent } from './busmain/busmain.component';
+import { RentaladdComponent } from './rentaladd/rentaladd.component';
+import { RentalbookingComponent } from './rentalbooking/rentalbooking.component';
+import { RentalmainComponent } from './rentalmain/rentalmain.component';
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { HireBusComponent } from './hire-bus/hire-bus.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +32,19 @@ import { SearchresultComponent } from './searchresult/searchresult.component';
     LoginComponent,
     RegisterComponent,
     FeedbackComponent,
-    SearchresultComponent
+    SearchresultComponent,
+    AdminloginComponent,
+    BusaddComponent,
+    BusbookingComponent,
+    BusmainComponent,
+    RentaladdComponent,
+    RentalbookingComponent,
+    RentalmainComponent,
+    SidemenuComponent,
+    HireBusComponent,
+    AboutUsComponent,
+    WalletComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

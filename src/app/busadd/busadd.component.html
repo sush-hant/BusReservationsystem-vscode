@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="register">
+    <div class="reg">Please Add New Bus Details</div>
+    <div class="details">
+        <form [formGroup]="addbusForm" (ngSubmit)="onSubmit()" novalidate> 
+            <label for="Source">Source</label><br>
+            <input type="text" name="Source" id="Source" formControlName="Source" placeholder="Enter Source" pattern="[A-Za-z]{50}">
+            <div class="validcheck" *ngIf="!Source?.valid && (Source?.dirty || Source?.touched)">
+                <div  class="pa" [hidden]="!Source.errors.required"> Source is required </div>
+                <!-- <div  class="pa" [hidden]="!Source.errors.pattern"> Enter only letters </div> -->
+            </div><br>
+                   
+            <label for="Destination">Destination</label><br>
+            <input type="text" name="Destination" id="Destination" formControlName="Destination" placeholder="Enter Destination">
+            <div class="validcheck" *ngIf="!Destination?.valid && (Destination?.dirty || Destination?.touched)">
+                <div  class="pa" [hidden]="!Destination.errors.required"> Destination is required </div>
+                <!-- <div  class="pa" [hidden]="!Destination.errors.pattern"> Enter only letters </div> -->
+            </div><br>
+             
+               
+            <label for="Departuretime">Departure Time</label><br>
+            <input type="text" name="Departuretime" id="Departuretime" formControlName="Departuretime" placeholder="HH:MM:SS">
+            <div class="validcheck" *ngIf="!Departuretime?.valid && (Departuretime?.dirty || Departuretime?.touched)">
+                <div  class="pa" [hidden]="!Departuretime.errors.required"> Departure time is required </div>
+                <!-- <div  class="pa" [hidden]="!Departuretime.errors.pattern">Invalid format</div> -->
+            </div><br>
+    
+            <label for="Arrivaltime">Arrival Time</label><br>
+            <input type="text" name="Arrivaltime" id="Arrivaltime" formControlName="Arrivaltime" placeholder="HH:MM:SS">
+            <div class="validcheck" *ngIf="!Arrivaltime?.valid && (Arrivaltime?.dirty || Arrivaltime?.touched)">
+                <div  class="pa" [hidden]="!Arrivaltime.errors.required"> Arrival time is required </div>
+                <!-- <div  class="pa" [hidden]="!Arrivaltime.errors.pattern">Invalid format</div>   -->
+            </div><br>
+  
+            <label for="FarePerSeat">Fare per seat</label><br>
+            <input type="text" name="FarePerSeat" id="FarePerSeat" formControlName="FarePerSeat" placeholder="Enter fare per seat">
+            <div class="validcheck" *ngIf="!FarePerSeat?.valid && (FarePerSeat?.dirty || FarePerSeat?.touched)">
+                <div  class="pa" [hidden]="!FarePerSeat.errors.required"> Fare per seat is required </div>
+                <!-- <div  class="pa" [hidden]="!seatfare.errors.pattern">Please enter only numbers</div> -->
+            </div><br>
+    
+            <!-- <form [formGroup]="addscheduleForm" (ngSubmit)="onSubmit()" nonvalidate>
+            <label for="Days">Days</label>
+            
+             <select formControlName="Days" class="form-control" name="Days" id="Days"formControlName="Days">
+                <option >Monday</option>
+                <option >Tuesday</option>
+                <option >Wednesday</option>
+                <option >Thursday</option>
+                <option >Friday</option>
+                <option>Saturday</option>
+                <option>Sunday</option>
+            </select> -->
+            
+            <!-- <div class="weekDays-selector">
+                <input type="checkbox" id="weekday-mon" class="weekday" [value]="Monday"  formControlName="Monday" (change)="onCheckboxChange($event)"/>
+                <label for="weekday-mon">Monday</label>
+                <input type="checkbox" id="weekday-tue" class="weekday" [value]="Tuesday" formControlName="Tuesday"(change)="onCheckboxChange($event)"/>
+                <label for="weekday-tue">Tuesday</label>
+                <input type="checkbox" id="weekday-wed" class="weekday" [value]="Wednesday" formControlName="Wednesday"(change)="onCheckboxChange($event)"/>
+                <label for="weekday-wed">Wednesday</label>
+                <input type="checkbox" id="weekday-thu" class="weekday" [value]="Thursday" formControlName="Thursday"(change)="onCheckboxChange($event)"/>
+                <label for="weekday-thu">Thursday</label>
+                <input type="checkbox" id="weekday-fri" class="weekday" [value]="Friday" formControlName="Friday"(change)="onCheckboxChange($event)"/>
+                <label for="weekday-fri">Friday</label>
+                <input type="checkbox" id="weekday-sat" class="weekday" [value]="Saturday" formControlName="Saturday"(change)="onCheckboxChange($event)"/>
+                <label for="weekday-sat">Saturday</label>
+                <input type="checkbox" id="weekday-sun" class="weekday" [value]="Sunday" formControlName="Sunday"(change)="onCheckboxChange($event)"/>
+                <label for="weekday-sun">Sunday</label>
+              </div> -->
+            <!-- <div class="validcheck" *ngIf="!Days?.valid && (Days?.dirty || Days?.touched)">
+                <div  class="pa" [hidden]="!Days.errors.required"> Days is required </div>
+            </div> 
+            </form> -->
+
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+                <div *ngFor="let CountryData of CountryData; let i=index">
+                  <label>
+                    <input  type="checkbox" [value]="CountryData.value" (change)="onCheckboxChange($event)" />
+                    {{CountryData.name}}
+                  </label>
+                </div>
+              
+              </form>
+  
+            <button class="enterbtn" type="submit" >Add Bus</button>
+        </form>
+    </div>
+    </div>
+</div>

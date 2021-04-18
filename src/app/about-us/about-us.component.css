@@ -1,0 +1,15 @@
+body {
+    
+    margin: 0;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #026670;
+    color: white;
+  }

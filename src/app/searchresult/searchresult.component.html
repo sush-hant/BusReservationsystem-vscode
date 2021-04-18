@@ -1,37 +1,41 @@
 <br> <br>
+
 <section class="search-sec">
     <div class="container" >
-        <form action="#" method="post" novalidate="novalidate">
-            <div class="row">
+      <form [formGroup]="searchForm" (ngSubmit)="onsearch()" novalidate>
+        <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                <option>Enter Pickup City</option>
-                                <option>Mumbai</option>
-                                <option>Hyderabad</option>
-                                <option>Chennai</option>
-                                <option>Kerala</option>
-                                <option>Bangalore</option>
-                                <option>Delhi</option>
+                            <select class="form-control search-slt" formControlName="Source" id="">
+                                <option value="" disabled selected>Source</option>
+                                <option Value="Mumbai">Mumbai</option>
+                                <option Value="Hyderabad">Hyderabad</option>
+                                <option Value="Chennai">Chennai</option>
+                                <option Value="Kerala">Kerala</option>
+                                <option Value="Bangalore">Bangalore</option>
+                                <option Value="Delhi">Delhi</option>
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1">
-                                <option>Enter Drop City</option>
-                                <option>Hyderabad</option>
-                                <option>Mumbai</option>
-                                <option>Delhi</option>
-                                <option>Goa</option>
-                                <option>Bangalore</option>
-                                <option>Gujarat</option>
+                            <select class="form-control search-slt" formControlName="Destination" id="">
+                                <option value="" disabled selected>Destination</option>
+                                <option Value="Hyderabad">Hyderabad</option>
+                                <option Value="Mumbai">Mumbai</option>
+                                <option Value="Delhi">Delhi</option>
+                                <option Value="Goa">Goa</option>
+                                <option Value="Bangalore">Bangalore</option>
+                                <option Value = "Pune">Pune</option>
                             </select>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="date" class="form-control search-slt" placeholder="Travel Date">
+                        <!-- <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <input type="date" class="form-control search-slt" formControlName="Date"  onfocus="(this.type='date')" id="date">
+                        </div> -->
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0" >  
+                          <input class="form-control search-slt" placeholder="Date" type="text"  formControlName="Day" onfocus="(this.type = 'date')"  id="date">
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="button" class="btn1 btn-danger wrn-btn">Search</button>
+                            <button type="submit" class="btn1 btn-danger wrn-btn" [disabled] ="!searchForm.valid">Search</button>
                         </div>
                     </div>
                 </div>
@@ -49,7 +53,6 @@
         <table class="table table-hover">
             <thead style="background-color: #226670; color: white;">
                 <tr>
-                    <th class="text-center"><span>Buses</span></th>
                     <th class="text-center"><span>Source</span></th>
                     <th class="text-center"><span>Destination</span></th>                               
                     <th class="text-center"><span>Departure Time</span></th>
@@ -60,68 +63,68 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor = "let bus of buses">
+                   
                     <td class="text-center">
-                        
-                        <span class="user-subhead">SRSM TRAVELS</span> <br>
-                       
-                    </td>
-                    <td class="text-center">
-                        <span class="label label-default">Mumbai</span>
+                        <span class="label label-default">{{bus.Source}}</span>
                         
                     </td>
                     <td class="text-center">
-                        <span class="label label-default">Hyderabad</span>
+                        <span class="label label-default">{{bus.Destination}}</span>
                     </td>
                    
                     <td class="text-center">
-                        <span class="label label-default">23:50 PM</span>
+                        <span class="label label-default">{{bus.DepartureTime}}</span>
                        
                     </td>
                     <td class="text-center">
-                        <span class="label label-default">08:50 AM</span>
+                        <span class="label label-default">{{bus.ArrivalTime}}</span>
                        
                     </td>
                     <td class="text-center">
-                        <span class="label label-default">Fare Starts at 1200/-</span>
+                        <span class="label label-default">{{bus.FarePerSeat}}</span>
                        
                     </td> 
                     <td>
-                        <button class="btn btn-primary center" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary center" type="button" data-toggle="collapse" data-target="#selectseats" aria-expanded="false" aria-controls="selectseats" (click)="onseatselect(bus.BusId)" >
                             Select Seats
                           </button>
                     </td>
+                    
                 </tr>
                 
             </tbody>
            
         </table>
         
-        </div>
         
-          <div class="collapse" id="collapseExample" >
+
+        </div>
+        <form [formGroup]="seatForm"  novalidate>
+          <div class="collapse" id="selectseats">
             <!-- <div class="card card-body" > -->
                 <div class="container seato" style="">
                     <div class="exit exit--front "></div>
-                    <ol class="cabin fuselage"> 
+                    <ol class="cabin fuselage" *ngFor = "let a of seats">                  
+                    
                 
                       <li class="row row--1">
                         <ol class="seats" type="A">
                           <li class="seat">
-                            <input type="checkbox" id="1" />
-                            <label for="1">01</label>
+                            <input type="checkbox" id="1" formControlName="seatno1"/>
+                            <label for="1" [ngStyle]="{'background-color': a.seatno1 == '1' ? 'red' : 'lightgrey'}" >01</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="2" />
-                            <label for="2">02</label>
+                            <input type="checkbox" id="2"  formControlName="seatno2"/>
+                            <label for="2"  [ngStyle]="{'background-color': a.seatno2 == '1' ? 'red' : 'lightgrey'}">02</label>
                           </li>         
                           <li class="seat">
-                            <input type="checkbox" id="3" />
-                            <label for="3">03</label>
+                            <input type="checkbox" id="3" formControlName="seatno3"/>
+                            <label for="3" [ngStyle]="{'background-color': a.seatno3 == '1' ? 'red' : 'lightgrey'}" >03</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="4" />
-                            <label for="4">04</label>
+                            <input type="checkbox" id="4" formControlName="seatno4" />
+                            <label for="4" [ngStyle]="{'background-color': a.seatno4 == '1' ? 'red' : 'lightgrey'}">04</label>
                           </li>
                         </ol>
                       </li>
@@ -129,20 +132,20 @@
                       <li class="row row--2">
                         <ol class="seats" type="A">
                           <li class="seat">
-                            <input type="checkbox" disabled id="5" />
-                            <label for="5">05</label>
+                            <input type="checkbox" id="5" formControlName="seatno5" />
+                            <label for="5" [ngStyle]="{'background-color': a.seatno5 == '1' ? 'red' : 'lightgrey'}">05</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="6" />
-                            <label for="6">06</label>
+                            <input type="checkbox" id="6"  formControlName="seatno6"/>
+                            <label for="6" [ngStyle]="{'background-color': a.seatno6 == '1' ? 'red' : 'lightgrey'}">06</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="7" />
-                            <label for="7">07</label>
+                            <input type="checkbox" id="7" formControlName="seatno7"/>
+                            <label for="7" [ngStyle]="{'background-color': a.seatno7 == '1' ? 'red' : 'lightgrey'}">07</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="8" />
-                            <label for="8">08</label>
+                            <input type="checkbox" id="8" formControlName="seatno8"/>
+                            <label for="8" [ngStyle]="{'background-color': a.seatno8 == '1' ? 'red' : 'lightgrey'}">08</label>
                           </li>
                         </ol>
                       </li>
@@ -150,20 +153,20 @@
                       <li class="row row--3">
                         <ol class="seats" type="A">
                           <li class="seat">
-                            <input type="checkbox" id="9" />
-                            <label for="9">09</label>
+                            <input type="checkbox" id="9" formControlName="seatno9" />
+                            <label for="9" [ngStyle]="{'background-color': a.seatno9 == '1' ? 'red' : 'lightgrey'}">09</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="10" />
-                            <label for="10">10</label>
+                            <input type="checkbox" id="10"  formControlName="seatno10"/>
+                            <label for="10" [ngStyle]="{'background-color': a.seatno10 == '1' ? 'red' : 'lightgrey'}">10</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="11" />
-                            <label for="11">11</label>
+                            <input type="checkbox" id="11"  formControlName="seatno11"/>
+                            <label for="11" [ngStyle]="{'background-color': a.seatno11 == '1' ? 'red' : 'lightgrey'}">11</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="12" />
-                            <label for="12">12</label>
+                            <input type="checkbox" id="12" formControlName="seatno12"/>
+                            <label for="12" [ngStyle]="{'background-color': a.seatno12 == '1' ? 'red' : 'lightgrey'}">12</label>
                           </li> 
                         </ol>
                       </li>
@@ -171,20 +174,20 @@
                       <li class="row row--4">
                         <ol class="seats" type="A">
                           <li class="seat">
-                            <input type="checkbox" id="13" />
-                            <label for="13">13</label>
+                            <input type="checkbox" id="13"  formControlName="seatno13"/>
+                            <label for="13" [ngStyle]="{'background-color': a.seatno13 == '1' ? 'red' : 'lightgrey'}">13</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="14" />
-                            <label for="14">14</label>
+                            <input type="checkbox" id="14" formControlName="seatno14" />
+                            <label for="14" [ngStyle]="{'background-color': a.seatno14 == '1' ? 'red' : 'lightgrey'}">14</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="15" />
-                            <label for="15">15</label>
+                            <input type="checkbox" id="15"  formControlName="seatno15"/>
+                            <label for="15" [ngStyle]="{'background-color': a.seatno15 == '1' ? 'red' : 'lightgrey'}">15</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="16" />
-                            <label for="16">16</label>
+                            <input type="checkbox" id="16" formControlName="seatno16" />
+                            <label for="16" [ngStyle]="{'background-color': a.seatno16 == '1' ? 'red' : 'lightgrey'}">16</label>
                           </li>          
                         </ol>
                       </li>
@@ -192,20 +195,20 @@
                       <li class="row row--5">
                         <ol class="seats" type="A">
                           <li class="seat">
-                            <input type="checkbox" id="17" />
-                            <label for="17">17</label>
+                            <input type="checkbox" id="17" formControlName="seatno17"/>
+                            <label for="17" [ngStyle]="{'background-color': a.seatno17 == '1' ? 'red' : 'lightgrey'}">17</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="18" />
-                            <label for="18">18</label>
+                            <input type="checkbox" id="18" formControlName="seatno18" />
+                            <label for="18" [ngStyle]="{'background-color': a.seatno18 == '1' ? 'red' : 'lightgrey'}">18</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="19" />
-                            <label for="19">19</label>
+                            <input type="checkbox" id="19"  formControlName="seatno19"/>
+                            <label for="19" [ngStyle]="{'background-color': a.seatno19 == '1' ? 'red' : 'lightgrey'}">19</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="20" />
-                            <label for="20">20</label>
+                            <input type="checkbox" id="20"  formControlName="seatno20"/>
+                            <label for="20" [ngStyle]="{'background-color': a.seatno20 == '1' ? 'red' : 'lightgrey'}">20</label>
                           </li>
                         </ol>
                       </li>
@@ -213,31 +216,82 @@
                       <li class="row row--6">
                         <ol class="seats" type="A">
                           <li class="seat">
-                            <input type="checkbox" id="21" />
-                            <label for="21">21</label>
+                            <input type="checkbox" id="21" formControlName="seatno21"/>
+                            <label for="21" [ngStyle]="{'background-color': a.seatno21 == '1' ? 'red' : 'lightgrey'}" >21</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="22" />
-                            <label for="22">22</label>
+                            <input type="checkbox" id="22"  formControlName="seatno22"/>
+                            <label for="22" [ngStyle]="{'background-color': a.seatno22 == '1' ? 'red' : 'lightgrey'}">22</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="23" />
-                            <label for="23">23</label>
+                            <input type="checkbox" id="23"  formControlName="seatno23"/>
+                            <label for="23" [ngStyle]="{'background-color': a.seatno23 == '1' ? 'red' : 'lightgrey'}">23</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="24" />
-                            <label for="24">24</label>
+                            <input type="checkbox" id="24" formControlName="seatno24"/>
+                            <label for="24" [ngStyle]="{'background-color': a.seatno24 == '1' ? 'red' : 'lightgrey'}" >24</label>
                           </li>  
                         </ol>
                       </li>
                     </ol>
-                    <button class="btn btn-primary" type="button" >
+                    <button class="btn btn-primary" type="submit"  data-toggle="collapse" data-target="#passengerdetails" aria-expanded="false" aria-controls="selectseats" (click)="onarray()">
                         Proceed to Booking
                      </button>
+                    
                 </div>
             <!-- </div> -->
            
           </div>
+        </form> 
+        <div class="collapse" id="passengerdetails">
+          <form [formGroup] ='passengerDetailFrom' (ngSubmit)="onbooked()"  novalidate>
+            <div class="container" style="width: 400px;" >
+                <h4>Passenger Details</h4>
+                <div *ngFor = "let i of selected_array" class="form-group card" >
+                  <p style="text-align: center; padding-top: 5px;"><b>Details for {{i}}</b></p>
+                  
+                    <div class="card-body">
+                    <label for="name">Full Name</label> 
+                    <input type="text" class="form-control" id="name" placeholder="Full Name" formControlName='Name'>
+                  
+                  <div class="row">
+                    <div class="form-group col col-sm">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" id="gender" formControlName='Gender'>
+                          <option>Select</option>
+                          <option>Male</option>
+                          <option>Female</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+            
+                      <div class="form-group col col-sm">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" placeholder="Age" formControlName='Age'>
+                      </div>
+                  </div>
+                </div>
+                    </div>
+              
+        
+                  <h4>Contact Details</h4>
+                  <div class="card card-body">
+                    <div class="form-group " >
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email" formControlName='Email'>
+                      </div>
+                      <div class="form-group " >
+                        <label for="contact_no">Contact Number</label>
+                        <input type="text" class="form-control" id="contact_no" placeholder="Conact Number" formControlName='ContactNo'>
+                      </div>
+                  </div>
+                 
+                    <button type="submit" class="btn btn-block" (click)="onbooked()">Sign in</button>
+        
+            </div>
+              
+          </form>
+        </div>
 
     </div>
   </div>

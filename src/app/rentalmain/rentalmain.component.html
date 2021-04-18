@@ -1,0 +1,36 @@
+<div class="container" style="width: 60%; padding-left: 10%; padding-top: 20px;">
+    <h3>Rental Buses</h3>
+ 
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- <th>RBusId</th> -->
+                <th>Pickup Point</th>
+                <th>No Of Seats</th>
+                <th>Fare Perday</th>
+                <th>Deposit</th>
+                <th>Drivers Name</th>
+                <th>Drivers Contact</th>                            
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ra of rentals">
+                <!-- <td>{{ra.RBusId}}</td> -->
+                <td>{{ra.PickupPoint}}</td>
+                <td>{{ra.NoOfSeats}}</td>
+                <td>{{ra.FarePerDay}}</td>
+                <td>{{ra.Deposit}}</td>
+                <td>{{ra.DriversName}}</td>
+                <td>{{ra.DriversContactNo}}</td>
+               
+                <td>
+                    <!-- <button [routerLink]="['/update/', RentalBusDetails.id]">Update</button> -->
+                    <button type="button" (click)="delete(ra.RBusId)">Remove</button>
+                </td>
+                 
+               
+            </tr>
+        </tbody>
+    </table>
+</div>

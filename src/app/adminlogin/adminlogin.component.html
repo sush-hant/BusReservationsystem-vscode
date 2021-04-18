@@ -1,0 +1,27 @@
+<div class="logpg">
+    <h2>Admin Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
+    <table >
+
+        <tr ><td class="tdt"><label for="username"><b>Username</b></label></td></tr>
+        <tr><td ><input  type="text" id="username" placeholder="Enter Username" class="inputt" formControlName="username"></td></tr>
+        <div *ngIf="!username?.valid && (username?.dirty ||username?.touched)">
+        <div [hidden]="!username.errors.required">User Name is required</div>
+        <div [hidden]="!username.errors.minlength">Min Length is 5</div></div>
+
+        <tr><td class="tdt" colspan="2"><label for="password"><b>Password</b></label></td></tr>
+        <tr><td colspan="2"><input type="password" id="password" placeholder="Enter Password" class="inputt" formControlName="password"></td></tr>
+        <div *ngIf="!password?.valid && (password?.dirty ||password?.touched)">
+        <div [hidden]="!password.errors.required">Password is required</div>
+        <div [hidden]="!password.errors.minlength">Min Length is 10</div></div>
+
+        <tr>
+            <td><button type="submit" class="inputt" [disabled]="!loginForm.valid" (click)=onLogin()>Login</button></td>
+            </tr>       
+        <tr><td><button type="submit" class="inputt" routerLink=''>Cancel</button></td></tr>  
+    </table>
+    </form>
+
+    
+    
+</div>

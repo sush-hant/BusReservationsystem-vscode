@@ -1,3 +1,12 @@
 
-<app-headerfooter></app-headerfooter>
-<router-outlet></router-outlet>
+    <app-headerfooter *ngIf="!router.url.includes('SideMenu')"></app-headerfooter>
+    <router-outlet ></router-outlet>
+    <app-footer *ngIf="!router.url.includes('SideMenu')"></app-footer>
+
+    <!-- <app-sidemenu></app-sidemenu> -->
+
+
+
+
+
+

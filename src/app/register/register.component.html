@@ -52,11 +52,11 @@
     
                            <div class="row row-space">
                             <div class="input-group">
-                                <input id="Contact" formControlName="Contact" class="input--style-2" type="text" placeholder="Enter Contact" name="Contact">
+                                <input id="ContactNo" formControlName="ContactNo" class="input--style-2" type="text" placeholder="Enter ContactNo" name="ContactNo">
                             </div>
-                            <div class="validcheck" *ngIf="!Contact?.valid && (Contact?.dirty || Contact?.touched)">
-                                <div  class="em" [hidden]="!Contact.errors.required"> Contact is required </div>
-                                <div  class="em" [hidden]="!Contact.errors.pattern">invalid Contact</div>
+                            <div class="validcheck" *ngIf="!ContactNo?.valid && (ContactNo?.dirty || ContactNo?.touched)">
+                                <div  class="em" [hidden]="!ContactNo.errors.required"> Contact is required </div>
+                                <div  class="em" [hidden]="!ContactNo.errors.pattern">invalid Contact</div>
                             </div>
                             </div>
     
@@ -69,6 +69,10 @@
                                 <option value="Female" name="Female">Female</option>
                                 <option value="No" name="No">Prefer Not To Say</option>
                             </select>
+                            <div class="validcheck" *ngIf="!Gender?.valid && (Gender?.dirty || Gender?.touched)">
+                                <div  class="em" [hidden]="!Gender.errors.required">Gender is required</div>
+                                
+                            </div>
                             </div><br>
                             <!-- <div class="row row-space">
                                 <div class="input-group">

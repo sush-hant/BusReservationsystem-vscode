@@ -2,6 +2,13 @@ hr {
     margin-left: 0;
     max-width: 40px;
 }
+.dropdown-menu{    
+    background-color: #026670;
+    
+}
+.dropdown-item {
+    color: black;
+}
 
 .navbar{
     background-color: #026670;
@@ -12,12 +19,12 @@ hr {
     cursor: pointer;
 }
 
+
 footer {
     background-color: #026670;
     color: white;
     bottom: 0;
     width: 100%;
-    bottom: 0;
 }
   
 footer a {
@@ -27,7 +34,7 @@ footer a {
 }
   
 footer a:hover {
-    color: #FA944B;
+    color: #fce181;
     text-decoration: none;
 }
   
