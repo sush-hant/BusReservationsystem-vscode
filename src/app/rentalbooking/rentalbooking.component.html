@@ -1,31 +1,30 @@
 <div class="container" style="width: 60%; padding-left: 6%; padding-top: 20px;">
     <h3>Rental Bus Bookings</h3>
  
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead style="background-color: #226670; color: white;">
             <tr>
-                <th>Id</th>
-                <!-- <th>RBusId</th> -->
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Booking Date</th>
-                <!-- <th>Bookingtime</th> -->
-                <th>Email</th>                            
-               <th>Drivers Need</th>
-               <th>Final Fare</th>
+                <th>Rental Bus ID</th>
+                <th class="text-center" >Start Date</th>
+                <th class="text-center">End Date</th>
+                <th class="text-center">Booking Date</th>
+                <th class="text-center">Bookingtime</th>
+                <th class="text-center">Email</th>                            
+               <th class="text-center">Drivers Need</th>
+               <th class="text-center">Final Fare</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let rb of rentalbookings">
-                <td>{{rb.RBBId}}</td>                                  
-                <!-- <td>{{ra.RBusId}}</td> -->
-                <td>{{rb.StartDate}}</td>
-                <td>{{rb.EndDate}}</td>
-                <td>{{rb.BookingDate}}</td>
-                <!-- <td>{{rb.Bookingtime}}</td> -->
-                <td>{{rb.Email}}</td>
-                <td>{{rb.DriversNeed}}</td>
-                <td>{{rb.FinalFare}}</td>
+                <td class="text-center">{{rb.RBusId}}</td>
+
+                <td class="text-center">{{rb.StartDate}}</td>
+                <td class="text-center">{{rb.EndDate}}</td>
+                <td class="text-center">{{rb.BookingDate}}</td>
+                <td class="text-center">{{rb.Bookingtime}}</td> 
+                <td class="text-center">{{rb.Email}}</td>
+                <td class="text-center">{{rb.DriversNeed}}</td>
+                <td class="text-center">{{rb.FinalFare}}</td>
             </tr>
         </tbody>
     </table>

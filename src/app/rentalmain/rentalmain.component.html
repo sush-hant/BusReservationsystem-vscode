@@ -1,28 +1,29 @@
 <div class="container" style="width: 60%; padding-left: 10%; padding-top: 20px;">
     <h3>Rental Buses</h3>
  
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead style="background-color: #226670; color: white;">
             <tr>
-                <!-- <th>RBusId</th> -->
-                <th>Pickup Point</th>
-                <th>No Of Seats</th>
-                <th>Fare Perday</th>
-                <th>Deposit</th>
-                <th>Drivers Name</th>
-                <th>Drivers Contact</th>                            
+                <th class="text-center">RBusId</th> 
+                <th class="text-center">Pickup Point</th>
+                <th class="text-center">No Of Seats</th>
+                <th class="text-center">Fare Perday</th>
+                <th class="text-center">Deposit</th>
+                <th class="text-center">Drivers Name</th>
+                <th class="text-center">Drivers Contact</th>  
+                <th class="text-center"></th>                          
                
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let ra of rentals">
-                <!-- <td>{{ra.RBusId}}</td> -->
-                <td>{{ra.PickupPoint}}</td>
-                <td>{{ra.NoOfSeats}}</td>
-                <td>{{ra.FarePerDay}}</td>
-                <td>{{ra.Deposit}}</td>
-                <td>{{ra.DriversName}}</td>
-                <td>{{ra.DriversContactNo}}</td>
+                <td class="text-center">{{ra.RBusId}}</td>
+                <td class="text-center">{{ra.PickupPoint}}</td>
+                <td class="text-center">{{ra.NoOfSeats}}</td>
+                <td class="text-center">{{ra.FarePerDay}}</td>
+                <td class="text-center">{{ra.Deposit}}</td>
+                <td class="text-center">{{ra.DriversName}}</td>
+                <td class="text-center">{{ra.DriversContactNo}}</td>
                
                 <td>
                     <!-- <button [routerLink]="['/update/', RentalBusDetails.id]">Update</button> -->

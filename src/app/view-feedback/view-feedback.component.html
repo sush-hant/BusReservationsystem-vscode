@@ -1,0 +1,24 @@
+<div class="container" style="width: 60%; padding-left: 10%; padding-top: 20px;">
+    <h3>Feedback</h3>
+ 
+    <table class="table table-striped">
+        <thead style="background-color: #226670; color: white;">
+            <tr>     
+                <th class="text-center">Subject</th>
+                <th class="text-center">Feedback</th>           
+                <th class="text-center">Email</th>
+                <th class="text-center">Contact No</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fb of feedback">
+                <td class="text-center">{{fb.Subject}}</td>
+                <td class="text-center">{{fb.Feedback1}}</td>
+                <td class="text-center">{{fb.Email}}</td>
+                <td class="text-center">{{fb.ContactNo}}</td>
+             
+            </tr>
+        </tbody>
+    </table>
+</div>

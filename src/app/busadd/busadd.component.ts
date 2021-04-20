@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, Validators, FormControlName, FormBuilder, FormArray} from '@angular/forms';
 import { Router } from '@angular/router';
 import { CrudAdminService } from '../crud-admin.service';
-
+import { Addschedule } from '../Models/add-schedule';
 @Component({
   selector: 'app-busadd',
   templateUrl: './busadd.component.html',
@@ -11,6 +11,7 @@ import { CrudAdminService } from '../crud-admin.service';
 })
 export class BusaddComponent implements OnInit {
   Days:string;
+  schedule: addschedule;
 
   constructor(public fb: FormBuilder,
     private router: Router,
@@ -39,7 +40,8 @@ export class BusaddComponent implements OnInit {
   //   Sunday : new FormControl('',[Validators.required])
   // })
   form: FormGroup;
-  CountryData: Array<any> = [
+
+  WeekData: Array<any> = [
     { name: 'Monday', value: 'Monday' },
     { name: 'Tuesday', value: 'Tuesday' },
     { name: 'Wednesday', value: 'Wednesday' },
@@ -74,10 +76,8 @@ export class BusaddComponent implements OnInit {
 
   onSubmit()
   {
-    console.log("HI");
     console.log(this.addbusForm.value);
     console.log(this.form.value);
-    console.log(typeof(this.form.value));
     
     this.crudadminService.addbus(this.addbusForm.value).subscribe(res=>{console.log('Bus Added')});
     alert("Added Successfully");
@@ -149,10 +149,11 @@ export class addbus {
   DepartureTime:string;
   ArrivalTime:string;
   FarePerSeat:number;
+ // scheduleTable: Addschedule[];
+ Days: string[]
 }
 
 export class addschedule{
-  ScheduleId:number;
   BusId:number;
-  Days:[string];
+  Days:string;
 }

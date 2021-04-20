@@ -22,8 +22,15 @@ import { RentalmainComponent } from './rentalmain/rentalmain.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { HireBusComponent } from './hire-bus/hire-bus.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { WalletComponent } from './wallet/wallet.component';
 import { FooterComponent } from './footer/footer.component';
+import { CommonModule} from '@angular/common';
+import { ProfileComponent } from './profile/profile.component';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import {WalletComponent} from './wallet/wallet.component';
+import { DemoComponent } from './demo/demo.component';
+import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +51,13 @@ import { FooterComponent } from './footer/footer.component';
     HireBusComponent,
     AboutUsComponent,
     WalletComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
+    BookingDetailsComponent,
+    ChangePasswordComponent,
+    DemoComponent,
+    ViewFeedbackComponent,
+    AdminhomeComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +65,9 @@ import { FooterComponent } from './footer/footer.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

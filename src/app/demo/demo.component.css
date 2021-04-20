@@ -1,0 +1,196 @@
+.btn
+{
+    background-color: #fce181;
+    color: black;
+    align-self: center;
+}
+
+.btn1
+{
+    background-color: rgba(184, 23, 23, 0.863);
+    width: 200px;
+    height: 40px;
+}
+
+
+.plane 
+{
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+.exit 
+{
+    position: relative;
+    height: 50px;
+}
+
+.exit:before
+{
+    content: "EXIT";
+    font-size: 14px;
+    line-height: 18px;
+    padding: 5px 5px;
+    display: block;
+    position: absolute;
+    background: #9fedd7;
+    color: black;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.exit:after
+{
+    
+        content:"DRIVER";
+        font-size: 14px;
+        line-height: 18px;
+        padding: 5px 5px;
+        display: block;
+        position: absolute;
+        background:#9fedd7;
+        color: black;
+        top: 50%;
+        transform: translate(0, -50%);
+    
+}
+
+.exit:before {
+    left: 0;
+  }
+  .exit:after {
+    right: 0;
+  }
+ 
+ol 
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.seats 
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+  
+.seat 
+{
+    display: flex;
+    flex: 0 0 14.28571428571429%;
+    padding: 5px;
+    position: relative;
+    width: 85px;
+    height: 50px;
+    
+}
+
+.seat:nth-child(2) 
+{
+    margin-right: 14.28571428571429%;
+}
+
+.seat input[type=checkbox] 
+{
+    position: absolute;
+    opacity: 0;
+}
+
+.seat input[type=checkbox]:checked + label 
+{
+    background: #026670;
+    color: white;
+}
+
+.seat label 
+{
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2rem;
+    padding: 0 0;
+    background: white;
+    border-radius: 5px;
+}
+
+.seat label:before 
+{
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    top: 1px;
+    left: 50%;
+    border-radius: 3px;
+}
+
+.seat label:hover 
+{
+    cursor: pointer;
+    box-shadow: 0 0 0px 2px #5C6AFF;
+}
+  
+.seat input[type=checkbox]:disabled + label {
+    background: #fce181;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+  .seat input[type=checkbox]:disabled + label:after {
+    
+    content:"X" ;
+    text-indent: 0;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .seat input[type=checkbox]:disabled + label:hover {
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  .collapse{
+  }
+
+  .seato{
+    background-color:#edeae5; 
+    width: 250px; 
+    height: 400px;
+    /* transform: rotateZ(270deg);
+    transform-origin: 50% 31%;
+   */
+  }
+
+  /*Searchbar*/
+.search-sec{
+    padding: 2rem;
+  }
+  .search-slt{
+    display: block;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+  }
+  .wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+    border:none;
+    color: white;
+  }
+ 
+ 
+  

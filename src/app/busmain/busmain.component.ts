@@ -14,9 +14,9 @@ export class BusmainComponent implements OnInit {
   constructor(public crudadminService:CrudAdminService) { }
 
   ngOnInit(){
-  //   this.crudadminService.getAllBus().subscribe((data: Addbuss[])=>{
-  //     this.buses = data;
-  // })
+     this.crudadminService.getAllBus().subscribe((data: Addbuss[])=>{
+     this.buses = data;
+ })
   // this.crudadminService.getAllBusSchedule().subscribe((data: Addschedule[])=>{
   //   this.schedule = data;
   //})
@@ -26,9 +26,10 @@ export class BusmainComponent implements OnInit {
   // {
   //   this.crudadminService.delete(ScheduleId).subscribe();
   // }
-  // deleteBus(BusId)
-  // {
-  //   this.crudadminService.delete(BusId).subscribe();
-  // }
+   deleteBus(BusId)
+   {
+     this.crudadminService.deleteBus(BusId).subscribe();
+     window.location.reload();
+  }
 
 }

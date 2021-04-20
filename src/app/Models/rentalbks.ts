@@ -5,7 +5,7 @@ export class Rentalbks {
     StartDate:Date;
     EndDate:Date;
     BookingDate:Date;
-    Bookingtime:Date;
+    Bookingtime:string;
     Email:string;
     DriversNeed:string;
     FinalFare:number;

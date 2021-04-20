@@ -18,7 +18,9 @@ export class RentalmainComponent implements OnInit {
 }
   delete(RBusId)
   {
-    this.crudadminService.delete(RBusId).subscribe();
+    this.crudadminService.deleterentalbus(RBusId).subscribe();
+    window.location.reload();
+
   }
 
 }

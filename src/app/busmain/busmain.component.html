@@ -1,27 +1,33 @@
 <div class="container" style="width: 60%; padding-left: 10%; padding-top: 20px;">
     <h3>Buses</h3>
  
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead style="background-color: #226670; color: white;"> 
             <tr>
                 <!-- <th>RBusId</th> -->
-                <th>Source</th>
-                <th>Destination</th>
-                <th>DepartureTime</th>                            
-               <th>ArrivalTime</th>
+                <th class="text-center">Source</th>
+                <th class="text-center" >Destination</th>
+                <th class="text-center">Departure Time</th>                            
+               <th class="text-center">Arrival Time</th>
+               <th class="text-center">Fare Per Seat</th>
+               <th class="text-center"></th>
+
+
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let bb of buses">
                 <!-- <td>{{ra.RBusId}}</td> -->
-                <td>{{bb.Source}}</td>
-                <td>{{bb.Destination}}</td>
-                <td>{{bb.DepartureTime}}</td>
-                <td>{{bb.ArrivalTime}}</td>
+                <td class="text-center">{{bb.Source}}</td>
+                <td class="text-center">{{bb.Destination}}</td>
+                <td class="text-center">{{bb.DepartureTime}}</td>
+                <td class="text-center">{{bb.ArrivalTime}}</td>
+                <td class="text-center">{{bb.FarePerSeat}}</td>
+
                 <!-- <td *ngFor="let sc"></td> -->
                 <td>
                     <!-- <button [routerLink]="['/update/', RentalBusDetails.id]">Update</button> -->
-                    <button type="button" (click)="delete(ra.RBusId)">Remove</button>
+                    <button type="button" (click)="deleteBus(bb.BusId)">Remove</button>
                 </td>
                  
                

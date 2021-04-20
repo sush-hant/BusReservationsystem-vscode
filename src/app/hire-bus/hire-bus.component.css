@@ -271,10 +271,6 @@ padding: 0 25px;
 cursor: pointer;
 color: #fff;
 font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
--webkit-transition: all 0.4s ease;
--o-transition: all 0.4s ease;
--moz-transition: all 0.4s ease;
-transition: all 0.4s ease;
 font-size: 14px;
 font-weight: 700;
 }
@@ -288,7 +284,7 @@ border-radius: 3px;
 .btn--green {
 background:#fce181;
 color: white;
-}
+} 
 
 
 

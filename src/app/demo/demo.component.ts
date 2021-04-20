@@ -1,20 +1,19 @@
+
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, FormArray, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-import { Booked } from '../Models/booked';
-import { Bookings } from '../Models/bookings';
 import { BusRouteDetails } from '../Models/bus-route-details';
 import { Seats } from '../Models/seats';
 import { ServiceService } from '../service.service';
 
 
 @Component({
-  selector: 'app-searchresult',
-  templateUrl: './searchresult.component.html',
-  styleUrls: ['./searchresult.component.css']
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.css']
 })
-export class SearchresultComponent implements OnInit {
+export class DemoComponent implements OnInit {
 
   constructor(private router: Router, public crudservice: ServiceService, private fb : FormBuilder) { }
   buses : BusRouteDetails[]
@@ -23,9 +22,8 @@ export class SearchresultComponent implements OnInit {
   unique_seats : string[] = new Array;
   selected_seats: any[]
   FinalFare : any;
-  Booking: Bookings =new Bookings();
-  seatsavail : Seats = new Seats();   
-
+  passengerDetails: FormGroup;
+  individualDetails:FormArray;
 
  
 
@@ -35,15 +33,15 @@ export class SearchresultComponent implements OnInit {
     Day: new FormControl('',[Validators.required])
   }) 
 
-  passengerDetailFrom =new FormGroup({
+  // passengerDetailFrom =new FormGroup({
 
   //  Name: new FormControl('',[ Validators.required]),
   //  Gender: new FormControl('',[ Validators.required]),
   //  Age: new FormControl('',[ Validators.required]),
-    Email: new FormControl('',[ Validators.required]),
-    ContactNo: new FormControl('',[ Validators.required])
+  //   Email: new FormControl('',[ Validators.required]),
+  //   ContactNo: new FormControl('',[ Validators.required])
 
-  })
+  // })
 
  
   // contactDetailsForm = new FormGroup({
@@ -86,14 +84,26 @@ export class SearchresultComponent implements OnInit {
 
   ngOnInit() {
     //this.crudservice.searchbus(Search).subscribe(data => {console.log(data)})
-  
+    this.passengerDetails = this.fb.group({
+      ContactNo: '',
+      Email:'',
+      individualDetails: this.fb.array([this.CreateDetail()])
+
+    })
   }
-  get Email(){
-    return this.passengerDetailFrom.get('Email')
+  CreateDetail(): FormGroup{
+    return this.fb.group({
+      Name:'',
+      Gender:'',
+      Age:''
+    });
   }
-  get ContactNo(){
-    return this.passengerDetailFrom.get('ContactNo')
+  adddetails():void{
+    this.individualDetails = this.passengerDetails.get('individualDetails') as FormArray;
+    this.individualDetails.push(this.CreateDetail());
+    console.log(this.individualDetails.value)
   }
+
 
   get Source()
   {
@@ -338,39 +348,13 @@ export class SearchresultComponent implements OnInit {
 
 
 
-      {
-        
-      }
 
 
   }
 
   onbooked()
   {
-
-    this.Booking.TravelDate =  this.searchForm.get('Day').value 
-    this.Booking.BusId =  this.buses[0].BusId
-    this.Booking.Fare = this.buses[0].FarePerSeat * this.unique_seats.length
-    this.Booking.Email = this.passengerDetailFrom.get('Email').value
-    this.Booking.ContactNo = this.passengerDetailFrom.get('ContactNo').value
-    this.Booking.NoOfSeats = this.unique_seats.length
-    console.log(this.seatForm.value)
-
-    console.log(this.seatsavail)
-    
-    console.log(this.Booking)
-
-    
-
-
-    this.crudservice.postbooking(this.Booking).subscribe((res)=>{
-      console.log(res)
-    })
-    
-
-    
-
-  
+    console.log(this.passengerDetails.value)
   }
 
   }
@@ -379,6 +363,11 @@ export class SearchresultComponent implements OnInit {
 
 
 
+export class Search{
+  Source: string;
+  Destination: string;
+  Day: Date;
+}
 
 
 

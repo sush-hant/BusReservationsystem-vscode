@@ -4,27 +4,69 @@
             <div class="card-heading"></div>
             <div class="card-body">
                 <h2 class="title">FEEDBACK</h2>
-                <form method="POST">
-                    <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Name" name="name">
-                    </div>
+                <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" novalidate>
+                    
+                    <!-- <div class="row row-space">
+                        <div class="input-group">
+                            <input id="Name" formControlName="Name" class="input--style-2" type="text" placeholder="Enter Name" name="name">
+                        </div>
+                        <div class="validcheck" *ngIf="!Name?.valid && (Name?.dirty || Name?.touched)">
+                            <div  class="em" [hidden]="!Name.errors.required">Name is required</div>
+                            
+                        </div>
+                       </div>  -->
+                       
+
+
                     <div class="row row-space">
                         <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Your Email" name="name">
+                            <input id="Email" formControlName="Email" class="input--style-2" type="text" placeholder="Enter Email" name="Email">
                         </div>
+                        <div class="validcheck" *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)">
+                            <div  class="em" [hidden]="!Email.errors.required">Email is required</div>
+                            <div   class="em" [hidden]="!Email.errors.email">Invalid email id</div>
+                        </div>
+                       </div> 
+
+
+                       
+
+
+                       <div class="row row-space">
                         <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Your Contact no" name="name">
+                            <input id="ContactNo" formControlName="ContactNo" class="input--style-2" type="text" placeholder="Enter Contact" name="ContactNo">
                         </div>
-                    </div>
-                    <div class="input-group">
-                        <input class="input--style-2" type="text" placeholder="Enter subject" name="name">
-                    </div>
-                    <div>
-                        <textarea class="input--style-2" rows="3" cols="50" type="text" placeholder="Comment Here.." name="name">
-                        </textarea>
-                    </div>
+                        <div class="validcheck" *ngIf="!ContactNo?.valid && (ContactNo?.dirty || ContactNo?.touched)">
+                            <div  class="em" [hidden]="!ContactNo.errors.required"> Contact is required </div>
+                            <div  class="em" [hidden]="!ContactNo.errors.pattern">invalid Contact</div>
+                        </div>
+                        </div>
+
+
+                        <div class="row row-space">
+                            <div class="input-group">
+                                <input id="subject" formControlName="Subject" class="input--style-2" type="text" placeholder="Subject" name="subject">
+                            </div>
+                            <div class="validcheck" *ngIf="!Subject?.valid && (Subject?.dirty || Subject?.touched)">
+                                <div  class="em" [hidden]="!Subject.errors.required">Subject is required</div>
+                                
+                            </div>
+                        </div> 
+
+                               
+                            <div class="row row-space">
+                                <div class="input-group">
+                                    <textarea id="feedback" formControlName="Feedback1" class="input--style-2" type="text" placeholder="Enter Feedback Here " name="feedback" rows="3" cols="60"></textarea>
+                                </div>
+                                <div class="validcheck" *ngIf="!Feedback?.valid && (Feedback?.dirty || Feedback?.touched)">
+                                    <div class="em" [hidden]="!Feedback.errors.required">
+                                        Feedback is required
+                                    </div>
+                                    </div>
+                                    </div>
+                    
                     <div class="p-t-30">
-                        <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                        <button style="width:150px; color: black;"  class="btn btn--radius btn--green" type="submit" >Submit</button>
                     </div>
                 </form>
             </div>

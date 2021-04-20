@@ -1,12 +1,11 @@
 export class Bookings {
-    TicketId:number;
+    TicketID: number;
     BusId:number;
     Email:string;
     ContactNo:number;
     Status:string;
     Fare:number;
     NoOfSeats:number;
-    BookingDate:string;
-    TravelDate:string;
-    BusRouteDetail:[];
+    BookingDate:Date;
+    TravelDate:Date;
 }

@@ -1,3 +1,5 @@
+import { Addschedule } from "./add-schedule";
+
 export class Addbuss {
     BusId:number = 258;
     Source:string;
@@ -5,4 +7,6 @@ export class Addbuss {
     DepartureTime:string;
     ArrivalTime:string;
     FarePerSeat:number;
+    ScheduleTable: Addschedule[];
+
 }

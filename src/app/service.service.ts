@@ -4,7 +4,9 @@ import {  Observable, throwError } from 'rxjs';
 import { UserDetail } from './Models/user-detail';
 import {Search } from './Models/search'
 import { BusRouteDetails } from './Models/bus-route-details';
-
+import { Bookings } from './Models/bookings';
+import { Rentalbusdetails} from './Models/rentalbusdetails'
+import { Rentalbks } from './Models/rentalbks';
 @Injectable({
   providedIn: 'root'
 })
@@ -42,5 +44,28 @@ export class ServiceService {
     var req = this.httpClient.get<any>(this.apiServer+'/searchresult?BusId='+Busid)
     return(req);
   }
+  getbookingdetailsbyid(Email):Observable<Bookings>{
+    var req = this.httpClient.get<Bookings>(this.apiServer+ '/Bookings1?email=' + Email)
+    return(req);
+  }
+
+  postbooking(booking):Observable<Bookings>{
+    var req = this.httpClient.post<Bookings>(this.apiServer+ '/Bookings1', JSON.stringify(booking), this.httpOptions)
+    return(req)
+  }
+
+  getrentalbus(PickupPoint):Observable<Rentalbusdetails[]>{
+    var req = this.httpClient.get<Rentalbusdetails[]>(this.apiServer+ '/rentalbusdetails?pickUpPoint=' + PickupPoint)
+    return req;
+  }
+
+  postrentalBooking(Booking):Observable<Rentalbks>{
+    return this.httpClient.post<Rentalbks>(this.apiServer + '/RentalBusBookings', JSON.stringify(Booking), this.httpOptions)
+  }
+    //add feedback
+    createFeedback(feedback): Observable<any> 
+    {
+      return this.httpClient.post<any>(this.apiServer + '/Feedbacks/', JSON.stringify(feedback), this.httpOptions)
+    }
 
 }

@@ -73,16 +73,16 @@
             </div> 
             </form> -->
 
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-
-                <div *ngFor="let CountryData of CountryData; let i=index">
+            <div [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                
+                <div *ngFor="let WeekData of WeekData; let i=index">
                   <label>
-                    <input  type="checkbox" [value]="CountryData.value" (change)="onCheckboxChange($event)" />
-                    {{CountryData.name}}
+                    <input  type="checkbox" [value]="WeekData.value" (change)="onCheckboxChange($event)" />
+                    {{WeekData.name}}
                   </label>
                 </div>
               
-              </form>
+            </div>
   
             <button class="enterbtn" type="submit" >Add Bus</button>
         </form>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { BusaddComponent } from './busadd/busadd.component';
@@ -18,6 +19,7 @@ import { RentalbookingComponent } from './rentalbooking/rentalbooking.component'
 import { RentalmainComponent } from './rentalmain/rentalmain.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { WalletComponent } from './wallet/wallet.component';
 
 const routes: Routes = [
@@ -37,6 +39,10 @@ const routes: Routes = [
     {path:'busadd',component:BusaddComponent},
     {path:'busmain',component:BusmainComponent},
     {path:'busbooking',component:BusbookingComponent},
+    {path:'viewFeedback', component:ViewFeedbackComponent},
+    {path:'AdminHome', component: AdminhomeComponent},
+    {path:'', component: AdminhomeComponent},
+
 
   ]},
   {path:'Profile', component: ProfileComponent},

@@ -1,33 +1,33 @@
 <div class="container" style="width: 60%; padding-left: 6%; padding-top: 20px;">
     <h3>Bus Bookings</h3>
  
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead style="background-color: #226670; color: white;">     
             <tr>
-                <th>TicketId</th>
-                <th>BusId</th>
-                <th>Email</th>
+                <th class="text-center" >TicketId</th>
+                <th class="text-center">BusId</th>
+                <th class="text-center">Email</th>
                 <!-- <th>Source</th>
                 <th>Destination</th> -->
-                <th>Status</th>
-                <th>Fare</th>
-                <th>NoOfSeats</th>                            
-               <th>BookingDate</th>
-               <th>TravelDate</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Fare</th>
+                <th class="text-center">NoOfSeats</th>                            
+               <th class="text-center">BookingDate</th>
+               <th class="text-center">TravelDate</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let booking of bookings">
-                <td>{{booking.TicketId}}</td>                                  
-                <td>{{booking.BusId}}</td>
-                <td>{{booking.Email}}</td>
+                <td class="text-center">{{booking.TicketID}}</td>                                  
+                <td class="text-center">{{booking.BusId}}</td>
+                <td class="text-center">{{booking.Email}}</td>
                 <!-- <td *ngFor="let bus of buses">{{bus.Source}}</td>
                 <td *ngFor="let bus of buses">{{bus.Destination}}</td> -->
-                <td>{{booking.Status}}</td>
-                <td>{{booking.Fare}}</td>
-                <td>{{booking.NoOfSeats}}</td>
-                <td>{{booking.BookingDate}}</td>
-                <td>{{booking.TravelDate}}</td>
+                <td class="text-center">{{booking.Status}}</td>
+                <td class="text-center">{{booking.Fare}}</td>
+                <td class="text-center">{{booking.NoOfSeats}}</td>
+                <td class="text-center">{{booking.BookingDate}}</td>
+                <td class="text-center">{{booking.TravelDate }}</td>
             </tr>
         </tbody>
     </table>

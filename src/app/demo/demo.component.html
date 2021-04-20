@@ -224,12 +224,12 @@
                             <label for="22" [ngStyle]="{'background-color': a.seatno22 == '1' ? 'red' : 'lightgrey'}">22</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="23"  formControlName="seatno23"/>
+                            <input type="checkbox" id="23"  formControlName="seatno23" />
                             <label for="23" [ngStyle]="{'background-color': a.seatno23 == '1' ? 'red' : 'lightgrey'}">23</label>
                           </li>
                           <li class="seat">
-                            <input type="checkbox" id="24" formControlName="seatno24"/>
-                            <label for="24" [ngStyle]="{'background-color': a.seatno24 == '1' ? 'red' : 'lightgrey'}" >24</label>
+                            <input type="checkbox" id="24" formControlName="seatno24" />
+                            <label for="24" [ngStyle]="{'background-color': a.seatno24 == '1' ? 'red' : 'lightgrey'}">24</label>
                           </li>  
                         </ol>
                       </li>
@@ -244,37 +244,13 @@
           </div>
         </form> 
         <div class="collapse" id="passengerdetails">
-          <form [formGroup] ='passengerDetailFrom' (ngSubmit)="onbooked()"  novalidate>
+          <form [formGroup] ='passengerDetails' (ngSubmit)="onbooked()"  novalidate>
             <div class="container" style="width: 400px;" >
                 <h4 style="text-align: center; padding-top: 5px;">Passenger Details</h4>
-                <div *ngFor = "let i of unique_seats" class="form-group card" >
-                  <p style="text-align: center; padding-top: 5px;"><b>Details for {{i}}</b></p>
-                  
-                    <div class="card-body">
-                    <label for="name">Full Name</label> 
-                    <input type="text" class="form-control" id="name" placeholder="Full Name">
-                  
-                  <div class="row">
-                    <div class="form-group col col-sm">
-                        <label for="gender">Gender</label>
-                        <select class="form-control" id="gender" >
-                          <option>Select</option>
-                          <option>Male</option>
-                          <option>Female</option>
-                          <option>Other</option>
-                        </select>
-                      </div>
-            
-                      <div class="form-group col col-sm">
-                        <label for="age">Age</label>
-                        <input type="number" class="form-control" id="age" placeholder="Age" >
-                      </div>
-                  </div>
-                </div>
-                    </div>
-              
-        
-                  <h4>Contact Details</h4>
+                <!-- <div *ngFor = "let i of unique_seats" class="form-group card" > -->
+                  <!-- <p style="text-align: center; padding-top: 5px;"><b>Details for {{i}}</b></p> -->
+                 
+                    <h4>Contact Details</h4>
                   <div class="card card-body">
                     <div class="form-group " >
                         <label for="email">Email</label>
@@ -285,15 +261,43 @@
                         <input type="text" class="form-control" id="contact_no" placeholder="Conact Number" formControlName='ContactNo'>
                       </div>
                   </div>
+                  </div>
+                  <div formArrayName = 'individualDetails' *ngFor = "let user of passengerDetails.get('individualDetails')['controls']; let i = index;"> 
+                    <div class="card-body">
+                      <div [formGroupName]="i">
+                    <label for="name">Full Name</label> 
+                    <input type="text" class="form-control" id="name" placeholder="Full Name" formControlName='Name'>
+                  <div class="row">
+                    <div class="form-group col col-sm">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" id="gender" formControlName='Gender'>
+                          <option>Select</option>
+                          <option>Male</option>
+                          <option>Female</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+            
+                      <div class="form-group col col-sm">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" placeholder="Age" formControlName='Age'>
+                      </div>
+                      <button type="button" (click)='adddetails()'>Add</button>
+                  </div>
+                </div>
+                    </div>
+              
+        
+                
+                <!-- </div> -->
                   <div>
                     <p *ngFor = "let bus of buses" style="text-align: center; padding-top: 5px;">
                      <b>Final Fare:{{ bus.FarePerSeat * unique_seats.length }}</b></p>
+                    <button type="submit" class="btn btn-block" (click)="onbooked()">Book your tickets</button>
                   </div>
                     
         
             </div>
-            <button type="submit" class="btn btn-block" (click)="onbooked()">Book your tickets</button>
-
               
           </form>
         </div>

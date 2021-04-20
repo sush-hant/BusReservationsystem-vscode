@@ -16,7 +16,8 @@ buses:BusRouteDetails[]=[];
 
   ngOnInit(){
     this.crudadminService.getBooking().subscribe((data: Bookings[])=>{
-      this.bookings = data; })
+      this.bookings = data;
+    console.log(this.bookings) })
   }
 
 }

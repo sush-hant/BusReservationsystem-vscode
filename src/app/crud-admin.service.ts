@@ -41,7 +41,7 @@ export class CrudAdminService {
   // }
 
   //delete rental bus
-  delete(id): Observable<Rentalbusdetails>
+  deleterentalbus(id): Observable<Rentalbusdetails>
   {
     return this.httpClient.delete<Rentalbusdetails>(this.apiServer + '/RentalBusDetails/' + id, this.httpOptions)
   }
@@ -53,30 +53,36 @@ export class CrudAdminService {
   }
 
   
-  // getAllBus(): Observable<Addbuss[]> 
-  // {
-  //   return this.httpClient.get<Addbuss[]>(this.apiServer + '/BusDetails/')
-  // }
+  getAllBus(): Observable<Addbuss[]> 
+  {
+     return this.httpClient.get<Addbuss[]>(this.apiServer + '/BusRouteDetails/')
+  }
   // getAllBusSchedule(): Observable<Addschedule[]> 
   // {
   //   return this.httpClient.get<Addschedule[]>(this.apiServer + '/BusDetails/')
   // }
 
-  // deleteBus(id,sch): Observable<Addbuss>
-  // {
-  //   return this.httpClient.delete<Addbuss>(this.apiServer + '/BusDetails/' + id, this.httpOptions)
-  // }
+  deleteBus(id): Observable<Addbuss>
+  {
+    return this.httpClient.delete<Addbuss>(this.apiServer + '/BusRouteDetails/' + id, this.httpOptions)
+  }
   
   //addnew bus
   addbus(bus): Observable<any> 
   {
-    return this.httpClient.post<any>(this.apiServer + '/BusRouteDetails/', JSON.stringify(bus), this.httpOptions)
+    return this.httpClient.post<any>(this.apiServer + '/BusDetails/', JSON.stringify(bus), this.httpOptions)
   }
 
   //get all bus bookings
-  getBooking(): Observable<any[]> 
+  getBooking(): Observable<Bookings[]> 
   {
-    return this.httpClient.get<any[]>(this.apiServer + '/Booking/')
+    return this.httpClient.get<Bookings[]>(this.apiServer + '/Bookings1/')
+  }
+
+
+  getFeedback(): Observable<any[]> 
+  {
+    return this.httpClient.get<any[]>(this.apiServer + '/Feedbacks/')
   }
 
 }

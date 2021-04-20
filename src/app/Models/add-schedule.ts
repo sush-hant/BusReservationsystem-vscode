@@ -1,5 +1,4 @@
 export class Addschedule {
-    ScheduleId:number;
-    BusId:number;
-    Days:[string];
+    BusId:number=258;
+    Days:string;
 }
