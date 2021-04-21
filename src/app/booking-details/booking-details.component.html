@@ -16,46 +16,49 @@
   </table>
 </div>-->
 
-<div class="card shadow-lg p-3 mb-5 bg-white rounded">
-    <div class="card-header">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Source</th>
-                <th scope="col">Destination</th>
-                <th scope="col">Travel Date</th>
+<!-- <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card-header"> -->
+        <h3 style="padding: 10px;">My Booking History</h3>
 
-                <th scope="col">Number of Seats</th>
-                <th scope="col">Status</th>
-                <th scope="col">Fare</th>
-                <th scope="col">Booking Date</th>
+        <table class="table table-striped">
+            <thead style="background-color: #226670; color: white;">
+                <tr>
+                    <th scope="col" class="text-center">Source</th>
+                <th scope="col" class="text-center">Destination</th>
+                <th scope="col" class="text-center">Travel Date</th>
+
+                <th scope="col" class="text-center">Number of Seats</th>
+                <th scope="col" class="text-center">Status</th>
+                <th scope="col" class="text-center">Fare</th>
+                <th scope="col" class="text-center">Booking Date</th>
 
                 </tr>
                 
+                
             </thead>    
-        </table>
-    </div>
-    <div class="card-body">
-        <table class="table table-hover">
-            <tbody>
-                <tr *ngFor="let b of booking">
-                    <td scope="row">{{b.BusRouteDetail.Source}}</td>
-                    <td> {{b.BusRouteDetail.Destination}}</td>
-                    <td>{{b.TravelDate}}</td>
-                    <td>{{b.NoOfSeats}}</td>
-                    <td>{{b.Status}}</td>
-                    <td>{{b.Fare}}</td>
-                    <td>{{b.BookingDate}}</td>
+            <tr *ngFor="let b of booking">
+                <td scope="row" class="text-center">{{b.BusRouteDetail.Source}}</td>
+                <td class="text-center"> {{b.BusRouteDetail.Destination}}</td>
+                <td class="text-center">{{b.TravelDate}}</td>
+                <td class="text-center">{{b.NoOfSeats}}</td>
+                <td class="text-center">{{b.Status}}</td>
+                <td class="text-center">{{b.Fare}}</td>
+                <td class="text-center">{{b.BookingDate}}</td>
 
-                </tr>
+            </tr>
+        </table>
+    
+        <!-- <table class="table table-hover">
+            <tbody>
+               
   
             </tbody>
             
-        </table>
+        </table> -->
         
 
         
-    </div>
+    
 
      
-</div>
+<!--</div> -->

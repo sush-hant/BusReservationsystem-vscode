@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServiceService } from '../service.service';
 import { Rentalbusdetails } from '../Models/rentalbusdetails'
 import { Rentalbks} from '../Models/rentalbks'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hire-bus',
@@ -11,7 +12,7 @@ import { Rentalbks} from '../Models/rentalbks'
 })
 export class HireBusComponent implements OnInit {
 
-  constructor(private crudservice: ServiceService) { }
+  constructor(private crudservice: ServiceService, public router: Router) { }
   rentalBuses: Rentalbusdetails[]
   book : Rentalbks = new Rentalbks();
   FinalFare : number;
@@ -72,6 +73,7 @@ export class HireBusComponent implements OnInit {
     this.crudservice.postrentalBooking(this.book).subscribe(res=>
       console.log(res))
     console.log(this.book)
+    this.router.navigateByUrl('')
   
     
   }

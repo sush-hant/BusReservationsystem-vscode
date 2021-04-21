@@ -32,17 +32,13 @@ export class LoginComponent implements OnInit {
   {
     
     this.curdservice.login(this.loginForm.value).subscribe(res => {
-      //window.location.reload()
 
       console.log(res)
       if(res != null)
       {
-
- 
-      
         sessionStorage.setItem('Email',this.loginForm.get('email').value)
         sessionStorage.setItem('User', JSON.stringify(res))
-        this.router.navigateByUrl('/Home')
+        this.router.navigateByUrl('Home')
         
         console.log(res)
         console.log(this.loginForm.get('email').value)
@@ -51,6 +47,8 @@ export class LoginComponent implements OnInit {
       else{
         alert("Invalid Login!");
       }
+      window.location.reload()
+
     })
 
   } 

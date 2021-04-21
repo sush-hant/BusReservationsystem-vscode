@@ -37,11 +37,11 @@ export class SearchresultComponent implements OnInit {
 
   passengerDetailFrom =new FormGroup({
 
-  //  Name: new FormControl('',[ Validators.required]),
-  //  Gender: new FormControl('',[ Validators.required]),
-  //  Age: new FormControl('',[ Validators.required]),
-    Email: new FormControl('',[ Validators.required]),
-    ContactNo: new FormControl('',[ Validators.required])
+    Name: new FormControl('',[ Validators.required]),
+    Gender: new FormControl('',[ Validators.required]),
+    Age: new FormControl('',[ Validators.required]),
+    Email: new FormControl('',[ Validators.required, Validators.email]),
+    ContactNo: new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
 
   })
 
@@ -365,6 +365,9 @@ export class SearchresultComponent implements OnInit {
 
     this.crudservice.postbooking(this.Booking).subscribe((res)=>{
       console.log(res)
+
+      alert(this.Booking.NoOfSeats + ' Tickets booked')
+      this.router.navigateByUrl('/Home')
     })
     
 

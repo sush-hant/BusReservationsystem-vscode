@@ -251,23 +251,37 @@
                   <p style="text-align: center; padding-top: 5px;"><b>Details for {{i}}</b></p>
                   
                     <div class="card-body">
-                    <label for="name">Full Name</label> 
-                    <input type="text" class="form-control" id="name" placeholder="Full Name">
-                  
+                      <div>
+                    <label for="Name">Full Name</label> 
+                    <input type="text" class="form-control" id="Name" placeholder="Full Name" formControlName='Name'>
+                    <div class="validcheck" *ngIf="!Name?.valid && (Name?.dirty || Name?.touched)">
+                      <div  class="em" [hidden]="!Name.errors.required">Name is required</div>
+                      
+                  </div>
+                  </div>
                   <div class="row">
                     <div class="form-group col col-sm">
                         <label for="gender">Gender</label>
-                        <select class="form-control" id="gender" >
+                        <select class="form-control" id="gender" formControlName='Gender'>
                           <option>Select</option>
                           <option>Male</option>
                           <option>Female</option>
                           <option>Other</option>
                         </select>
+                        <div class="validcheck" *ngIf="!Gender?.valid && (Gender?.dirty || Gender?.touched)">
+                          <div  class="em" [hidden]="!Gender.errors.required">Gender is required</div>
+                          
+                        </div>
                       </div>
             
                       <div class="form-group col col-sm">
                         <label for="age">Age</label>
-                        <input type="number" class="form-control" id="age" placeholder="Age" >
+                        <input type="number" class="form-control" id="age" placeholder="Age" formControlName='Age' >
+                        <div class="validcheck" *ngIf="!Age?.valid && (Age?.dirty || Age?.touched)">
+                          <div  class="em" [hidden]="!Age.errors.required">Age is required</div>
+                          
+                      </div>
+                      
                       </div>
                   </div>
                 </div>
@@ -279,10 +293,18 @@
                     <div class="form-group " >
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="Email" formControlName='Email'>
+                        <div class="validcheck" *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)">
+                          <div  class="em" [hidden]="!Email.errors.required">Email is required</div>
+                          <div   class="em" [hidden]="!Email.errors.Email">Invalid Email id</div>
+                      </div>
                       </div>
                       <div class="form-group " >
                         <label for="contact_no">Contact Number</label>
                         <input type="text" class="form-control" id="contact_no" placeholder="Conact Number" formControlName='ContactNo'>
+                        <div class="validcheck" *ngIf="!ContactNo?.valid && (ContactNo?.dirty || ContactNo?.touched)">
+                          <div  class="em" [hidden]="!ContactNo.errors.required"> Contact is required </div>
+                          <div  class="em" [hidden]="!ContactNo.errors.pattern">invalid Contact</div>
+                      </div>
                       </div>
                   </div>
                   <div>
@@ -292,7 +314,7 @@
                     
         
             </div>
-            <button type="submit" class="btn btn-block" (click)="onbooked()">Book your tickets</button>
+            <button type="submit" class="btn btn-block" (click)="onbooked()" [disabled] ="!passengerDetailFrom.valid">Book your tickets</button>
 
               
           </form>
